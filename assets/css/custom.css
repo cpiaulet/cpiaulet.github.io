@@ -1,0 +1,496 @@
+/*
+	Site additions layered on top of Massively (main.css).
+	Kept separate so the template's compiled CSS can be regenerated without losing them.
+*/
+
+/* Nav: tighter links so all sections fit on one bar */
+
+	#nav ul.links li a {
+		padding: 0 1.25rem;
+	}
+
+	@media screen and (max-width: 1280px) {
+		#nav ul.links li a {
+			padding: 0 0.8rem;
+		}
+	}
+
+/* Stats row (big numbers with small captions) */
+
+	ul.stats {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1.5rem 3.5rem;
+		list-style: none;
+		margin: 0 0 3rem 0;
+		padding: 0;
+	}
+
+		ul.stats li {
+			padding: 0;
+			text-align: center;
+		}
+
+		ul.stats strong {
+			display: block;
+			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-weight: 900;
+			font-size: 2.75rem;
+			line-height: 1.1;
+			color: #212931;
+		}
+
+		ul.stats span {
+			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-weight: 900;
+			font-size: 0.7rem;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: #909498;
+		}
+
+/* Small uppercase label above headings */
+
+	.eyebrow {
+		display: block;
+		margin: 0 0 0.5rem 0;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-weight: 900;
+		font-size: 0.75rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: #909498;
+	}
+
+/* Left-aligned cards inside the two-column .posts grid */
+
+	#main > .posts > article.left,
+	#main > .posts > article.left p {
+		text-align: left;
+	}
+
+/* Section intro text */
+
+	#main > section > header.section-head {
+		margin-bottom: 3rem;
+		text-align: center;
+	}
+
+		#main > section > header.section-head p {
+			margin: 0 auto;
+			max-width: 40rem;
+			text-align: center;
+		}
+
+/* Image credit line under a figure */
+
+	.credit {
+		margin: -2rem 0 2rem 0;
+		font-size: 0.65rem;
+		line-height: 1.5;
+		color: #909498;
+		text-align: left;
+	}
+
+	.image.fit.wide img {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+	}
+
+/* Dated entry lists (year column + description) */
+
+	ul.entries {
+		list-style: none;
+		margin: 0 0 2rem 0;
+		padding: 0;
+	}
+
+		ul.entries li {
+			display: grid;
+			grid-template-columns: 7rem 1fr;
+			gap: 0 1.5rem;
+			padding: 1rem 0 0 0;
+			margin: 1rem 0 0 0;
+			border-top: solid 1px #eeeeee;
+			text-align: left;
+		}
+
+			ul.entries li:first-child {
+				padding-top: 0;
+				margin-top: 0;
+				border-top: 0;
+			}
+
+		ul.entries .when {
+			padding-top: 0.2rem;
+			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-weight: 900;
+			font-size: 0.75rem;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: #909498;
+		}
+
+		ul.entries p {
+			margin: 0;
+			text-align: left;
+		}
+
+		#main > .posts ul.entries li,
+		.row ul.entries li {
+			grid-template-columns: 5.5rem 1fr;
+		}
+
+		@media screen and (max-width: 480px) {
+			ul.entries li,
+			#main > .posts ul.entries li,
+			.row ul.entries li {
+				grid-template-columns: 1fr;
+			}
+		}
+
+/* Highlight bullets inside research theme cards */
+
+	ul.highlights {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+		ul.highlights li {
+			padding: 0.75rem 0 0 0;
+			margin: 0.75rem 0 0 0;
+			border-top: solid 1px #eeeeee;
+			font-size: 0.9rem;
+		}
+
+		ul.highlights .venue {
+			display: block;
+			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-weight: 900;
+			font-size: 0.7rem;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: #909498;
+		}
+
+/* Paper list */
+
+	ul.papers {
+		list-style: none;
+		margin: 0 0 2rem 0;
+		padding: 0;
+	}
+
+		ul.papers li {
+			padding: 0;
+			margin: 0 0 1.5rem 0;
+		}
+
+		ul.papers .venue {
+			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-weight: 900;
+			font-size: 0.75rem;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: #909498;
+		}
+
+/* Home: three shortcut cards */
+
+	.shortcuts {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+		gap: 3rem;
+		text-align: center;
+	}
+
+		.shortcuts article {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.shortcuts .image.fit {
+			margin: 0 0 1.5rem 0;
+		}
+
+			.shortcuts .image.fit img {
+				width: 100%;
+				aspect-ratio: 4 / 3;
+				object-fit: cover;
+			}
+
+		.shortcuts p {
+			flex-grow: 1;
+			text-align: center;
+		}
+
+		.shortcuts .actions {
+			margin-bottom: 0;
+		}
+
+/* News cards (shared by the rolling band and the horizontal scroller) */
+
+	a.news-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		box-sizing: border-box;
+		height: 100%;
+		padding: 1.25rem 1.5rem;
+		border: solid 2px #eeeeee;
+		background-color: #ffffff;
+		color: #212931;
+		text-align: left;
+		text-decoration: none;
+		-moz-transition: border-color 0.2s ease-in-out;
+		-webkit-transition: border-color 0.2s ease-in-out;
+		transition: border-color 0.2s ease-in-out;
+	}
+
+		a.news-card:hover {
+			border-color: #18bfef;
+			color: #212931 !important;
+		}
+
+		a.news-card .thumb {
+			display: block;
+			width: calc(100% + 3rem);
+			max-width: none;
+			margin: -1.25rem -1.5rem 0.5rem -1.5rem;
+			aspect-ratio: 16 / 9;
+			object-fit: cover;
+		}
+
+		a.news-card .badge {
+			align-self: flex-start;
+			padding: 0.15rem 0.6rem;
+			background-color: #212931;
+			color: #ffffff;
+			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-weight: 900;
+			font-size: 0.6rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
+		a.news-card .outlet {
+			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-weight: 900;
+			font-size: 0.75rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
+		a.news-card .headline {
+			flex-grow: 1;
+			font-size: 0.9rem;
+			line-height: 1.6;
+		}
+
+		a.news-card .date {
+			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-weight: 900;
+			font-size: 0.65rem;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: #909498;
+		}
+
+/* Rolling "in the news" band (auto-scrolls, pauses on hover/focus) */
+
+	/* Without JS (or with reduced motion) the band is a plain swipeable row;
+	   custom.js duplicates the cards and adds .is-rolling to animate it. */
+
+	.marquee {
+		margin: 0 -4rem;
+		padding: 0 4rem;
+		overflow-x: auto;
+	}
+
+		.marquee.is-rolling {
+			padding: 0;
+			overflow: hidden;
+			-webkit-mask-image: linear-gradient(to right, transparent, #000 4rem, #000 calc(100% - 4rem), transparent);
+			mask-image: linear-gradient(to right, transparent, #000 4rem, #000 calc(100% - 4rem), transparent);
+		}
+
+		.marquee-track {
+			display: flex;
+			width: max-content;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.marquee.is-rolling .marquee-track {
+			animation: marquee 90s linear infinite;
+		}
+
+		.marquee.is-rolling:hover .marquee-track,
+		.marquee.is-rolling:focus-within .marquee-track {
+			animation-play-state: paused;
+		}
+
+			.marquee-track li {
+				width: 20rem;
+				margin: 0 1.5rem 0 0;
+				padding: 0;
+			}
+
+	@keyframes marquee {
+		from { transform: translateX(0); }
+		to { transform: translateX(-50%); }
+	}
+
+	@media screen and (max-width: 736px) {
+		.marquee {
+			margin: 0 -2rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.marquee {
+			overflow-x: auto;
+		}
+
+		.marquee-track {
+			animation: none;
+		}
+
+			.marquee-track li[aria-hidden="true"] {
+				display: none;
+			}
+	}
+
+/* Horizontal scroller with arrow buttons */
+
+	.scroller {
+		display: flex;
+		gap: 1.5rem;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		list-style: none;
+		margin: 0 0 1.5rem 0;
+		padding: 0 0 1rem 0;
+	}
+
+		.scroller li {
+			flex: 0 0 19rem;
+			padding: 0;
+			scroll-snap-align: start;
+		}
+
+		.scroller li.featured {
+			flex-basis: 32rem;
+		}
+
+			.scroller li.featured a.news-card {
+				border-color: #212931;
+			}
+
+			.scroller li.featured .headline {
+				font-size: 1.25rem;
+				font-weight: 700;
+				line-height: 1.4;
+			}
+
+		@media screen and (max-width: 736px) {
+			.scroller li.featured {
+				flex-basis: 85%;
+			}
+		}
+
+	.scroller-nav {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		margin: 0;
+	}
+
+/* Contact page */
+
+	ul.contact-list {
+		list-style: none;
+		margin: 0 0 2rem 0;
+		padding: 0;
+	}
+
+		ul.contact-list li {
+			padding: 0;
+			margin: 0 0 1.5rem 0;
+		}
+
+		ul.contact-list .eyebrow {
+			margin-bottom: 0.25rem;
+		}
+
+/* Software cards */
+
+	.software h3 {
+		margin-bottom: 0.5rem;
+	}
+
+	.software .role {
+		margin-bottom: 1rem;
+	}
+
+/* Group member cards */
+
+	.avatar {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 8rem;
+		height: 8rem;
+		margin: 0 auto 1.5rem auto;
+		border-radius: 50%;
+		overflow: hidden;
+		background-color: #212931;
+		color: #ffffff;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-weight: 900;
+		font-size: 2.25rem;
+		letter-spacing: 0.05em;
+	}
+
+		.avatar img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+	.tag {
+		display: inline-block;
+		margin: 0 0 1rem 0;
+		padding: 0.2rem 0.75rem;
+		border: solid 2px #212931;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-weight: 900;
+		font-size: 0.65rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: #212931;
+	}
+
+	.member h3 {
+		margin-bottom: 0.5rem;
+	}
+
+	.member p {
+		text-align: center;
+	}
+
+	.member ul.honors {
+		list-style: none;
+		margin: 1.5rem 0 0 0;
+		padding: 1rem 0 0 0;
+		border-top: solid 1px #eeeeee;
+		font-size: 0.85rem;
+	}
+
+		.member ul.honors li {
+			padding: 0;
+		}
