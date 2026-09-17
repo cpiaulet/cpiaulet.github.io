@@ -101,6 +101,10 @@
 		margin-top: -2rem;
 	}
 
+	#main .image.main.narrow + p.caption {
+		margin-top: 0;
+	}
+
 /* Landscape crop for portrait-oriented photos */
 
 	.image.fit.crop-landscape img {
