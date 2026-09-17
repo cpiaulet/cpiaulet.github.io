@@ -83,6 +83,33 @@
 			text-align: center;
 		}
 
+/* Narrower centered photo inside a featured post, with a caption */
+
+	.image.main.narrow {
+		max-width: 30rem;
+		margin: 0 auto 1rem auto;
+	}
+
+	#main p.caption {
+		margin: 0 0 1rem 0;
+		font-size: 0.75rem;
+		color: #909498;
+		text-align: center;
+	}
+
+	#main .image.main + p.caption {
+		margin-top: -2rem;
+	}
+
+/* Landscape crop for portrait-oriented photos */
+
+	.image.fit.crop-landscape img {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		object-position: 50% 50%;
+	}
+
 /* Image credit line under a figure */
 
 	.credit {
@@ -218,7 +245,7 @@
 
 			.shortcuts .image.fit img {
 				width: 100%;
-				aspect-ratio: 4 / 3;
+				aspect-ratio: 3 / 2;
 				object-fit: cover;
 			}
 
@@ -493,4 +520,167 @@
 
 		.member ul.honors li {
 			padding: 0;
+		}
+
+/* Press list with a thumbnail to the left of each entry */
+
+	ul.press {
+		list-style: none;
+		margin: 0 0 2rem 0;
+		padding: 0;
+	}
+
+		ul.press li {
+			display: grid;
+			grid-template-columns: 11rem 1fr;
+			gap: 0 1.75rem;
+			align-items: start;
+			padding: 1.5rem 0 0 0;
+			margin: 1.5rem 0 0 0;
+			border-top: solid 1px #eeeeee;
+		}
+
+			ul.press li:first-child {
+				padding-top: 0;
+				margin-top: 0;
+				border-top: 0;
+			}
+
+		ul.press .thumb img {
+			display: block;
+			width: 100%;
+			aspect-ratio: 16 / 10;
+			object-fit: cover;
+		}
+
+		ul.press .when {
+			display: block;
+			margin-bottom: 0.25rem;
+			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-weight: 900;
+			font-size: 0.75rem;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: #909498;
+		}
+
+		ul.press p {
+			margin: 0;
+			text-align: left;
+		}
+
+		@media screen and (max-width: 480px) {
+			ul.press li {
+				grid-template-columns: 7rem 1fr;
+				gap: 0 1rem;
+			}
+		}
+
+		/* Entries without a thumbnail span the full row */
+		ul.press li > div:only-child {
+			grid-column: 1 / -1;
+		}
+
+		/* Narrower thumbnails inside the two-column .posts panels */
+		#main > .posts ul.press li {
+			grid-template-columns: 7rem 1fr;
+			gap: 0 1.25rem;
+		}
+
+/* Video thumbnail with a play button */
+
+	.video-thumb {
+		position: relative;
+	}
+
+		.video-thumb::after {
+			content: "\25B6";
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 4rem;
+			height: 4rem;
+			padding-left: 0.25rem;
+			box-sizing: border-box;
+			border-radius: 50%;
+			background-color: rgba(33, 41, 49, 0.85);
+			color: #ffffff;
+			font-size: 1.5rem;
+			line-height: 4rem;
+			text-align: center;
+			-moz-transform: translate(-50%, -50%);
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+
+		.video-thumb img {
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			object-fit: cover;
+		}
+
+/* Software logos */
+
+	.software .logo {
+		display: block;
+		max-width: 8rem;
+		margin: 0 0 1.5rem 0;
+	}
+
+/* Impact banner (compact stats inside a section) */
+
+	.impact {
+		margin: 3rem 0 0 0;
+		padding: 2rem 2rem 0.5rem 2rem;
+		border: solid 2px #eeeeee;
+		text-align: center;
+	}
+
+		.impact .eyebrow {
+			margin-bottom: 1.5rem;
+		}
+
+		.impact ul.stats {
+			gap: 1.5rem 3rem;
+			margin-bottom: 1.5rem;
+		}
+
+			.impact ul.stats strong {
+				font-size: 2rem;
+			}
+
+			.impact ul.stats li {
+				max-width: 11rem;
+			}
+
+		.impact ul.stats li {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.35rem;
+		}
+
+		.impact ul.stats .icon {
+			font-size: 1.6rem;
+			color: #8e5aa0;
+		}
+
+		/* Mirror the gauge so the needle sits in the first half of the dial */
+		.impact ul.stats .fa-tachometer-alt {
+			display: inline-block;
+			-moz-transform: scaleX(-1);
+			-webkit-transform: scaleX(-1);
+			transform: scaleX(-1);
+		}
+
+		/* Captions under the impact numbers: body font, sentence case */
+		.impact ul.stats span:not(.icon) {
+			font-family: "Merriweather", Georgia, serif;
+			font-weight: 300;
+			font-style: italic;
+			font-size: 0.8rem;
+			line-height: 1.5;
+			letter-spacing: 0;
+			text-transform: none;
+			color: #212931;
 		}
