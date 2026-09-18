@@ -1,0 +1,11 @@
+# macOS folder settings
+.DS_Store
+
+# local tooling (preview server config)
+.claude/
+
+# full-size originals kept locally; the site uses the resized copies
+images/annabel-image.jpg
+images/emily-image.png
+images/fernanda-image.jpeg
+images/initiasciences.png
